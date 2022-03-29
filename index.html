@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Forms and Components</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<form id="signup-form" @submit.prevent="proccessForm">
+
+    <!--name-->
+        <div class="field">
+            <label class="label">Name:</label>
+            <input type="text" class="input" name="name" v-model="name" @keyup="validateName">
+            <p class="help is-danger" v-if="errors.name">Please Enter a name with more than 2 characters</p>
+        </div>
+
+
+
+    <!--email-->
+    <div class="field">
+        <label class="label">Email:</label>
+        <input type="text" class="input" name="email" v-model="email" @keyup="validateEmail" >
+
+        <p class="help is-danger" v-if="errors.email">Please enter a valid email address such as: example@domain.com</p>
+    </div>
+
+
+
+    <!--submit text-->
+    <div class="field has-text-right">
+        <li v-if="!errors.email && !errors.name">
+            Submitted
+        </li>
+        <li v-else>Not Submitted</li>
+    </div>
+</form>
+
+<div id="signup-form">
+<secret></secret>
+</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
